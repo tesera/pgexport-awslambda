@@ -8,15 +8,15 @@ Uses AWS Lambda's basic execution mode to invoke an export.
 
 ````json
 {
-    pgurl: "postgres://localhost/afgo_dev",
-    queries: [
+    "pgurl": "postgres://localhost/afgo_dev",
+    "queries": [
         {
-            filename: 'plot.csv',
-            sql: "SELECT * FROM app.export_as_csv('psp.plot', 'APLY')"
+            "filename": "plot.csv",
+            "sql": "SELECT * FROM app.export_as_csv('psp.plot', 'APLY')"
         }
     ],
-    bucket: "pgexport-awslambda",
-    key: "9d4e9ddf-28cb-45a1-8e17-748694831155.zip"
+    "bucket": "pgexport-awslambda",
+    "key": "9d4e9ddf-28cb-45a1-8e17-748694831155.zip"
 }
 ````
 

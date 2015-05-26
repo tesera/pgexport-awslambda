@@ -39,10 +39,8 @@ exports.handler = function (event, context) {
             console.log('zipping %s files', results.length);
             results = _.groupBy(results, 'state');
             var zip = results.fulfilled.reduce(function (zip, row) {
-                //console.log(JSON.stringify(row));
-                //found issue here if no results are returned
-                //row = No rows returned from the query.
-                zip.addFile(row.value.filename, row.value.data);
+                if (row.value != null)
+                    zip.addFile(row.value.filename, row.value.data);
                 return zip;
             }, new admZip());
 

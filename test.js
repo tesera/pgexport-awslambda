@@ -1,11 +1,15 @@
 var lambda = require('./index.js');
 
 var evt = {
-    pgurl: "postgres://localhost/afgo_dev",
+    pgurl: "postgres://afgo:YUaXqGc37ANy@tsi-postgres-1.cn0lfmewpatf.us-east-1.rds.amazonaws.com/afgo_dev",
+    rds:
+        {
+            securityGroup : 'pg-lambda'
+        },
     queries: [
         {
             filename: 'plot.csv',
-            sql: "SELECT * FROM app.export_as_csv('psp.plot', 'APLY')"
+            sql: "SELECT * FROM app.export_report_as_csv('app.report_full','APLY')"//app.export_as_csv('psp.plot', 'APLY')"
         }
     ],
     bucket: "pgexport-awslambda",

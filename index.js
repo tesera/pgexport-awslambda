@@ -25,16 +25,7 @@ exports.handler = function (event, context) {
             return pgExport.getExports();
         },
         getExportSignedUrl: function (event) {
-            // aws s3 get signed url
-            var options = {
-                bucket: 'pgexport-awslambda',
-                key: event.key
-            };
-            // var s3 = new AWS.S3();
-            // var params = {Bucket: 'myBucket', Key: 'myKey'};
-            // s3.getSignedUrl('getObject', params, function (err, url) {
-            //   console.log("The URL is", url);
-            // });
+            return pgExport.getExportSignedUrl(event.url);
         }
     };
 

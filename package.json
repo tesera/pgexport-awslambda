@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/tesera/pgexport-awslambda/issues"
   },
-  "homepage": "https://github.com/tesera/pgexport-awslambda"
+  "homepage": "https://github.com/tesera/pgexport-awslambda",
+  "devDependencies": {
+    "node-env-file": "^0.1.7"
+  }
 }

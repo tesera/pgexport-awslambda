@@ -1,35 +1,37 @@
 var lambda = require('./index.js');
+require('node-env-file')('.env');
+
+var evt = {
+    "action": "exportData",
+    "folder": "magda",
+    "pgurl": process.env.PGURL,
+    "rds": {
+      "DBSecurityGroupName": "pg-lambda"
+    },
+    "queries": [
+      {
+        "filename": "report_full.csv",
+        "sql": "SELECT * FROM app.export_report_as_csv('app.report_full', 'APLY')"
+      }
+    ]
+};
 
 // var evt = {
-//     action: "exportData",
+//     action: "getExports",
 //     folder: "magda",
+    // "pgurl": process.env.PGURL,
 //     rds:
 //         {
-//             pgurl: "",
 //             securitygroup : 'pg-lambda'
-//         },
-//     queries: [
-//         {
-//             filename: 'plot.csv',
-//             sql: "SELECT * FROM app.export_report_as_csv('app.report_full','APLY')"//app.export_as_csv('psp.plot', 'APLY')"
 //         }
-//     ]
 // };
-var evt = {
-    action: "getExports",
-    folder: "magda",
-    rds:
-        {
-            pgurl: "",
-            securitygroup : 'pg-lambda'
-        }
-};
+
 // var evt = {
 //     action: "getExportSignedUrl",
 //     folder: "magda",
+    // "pgurl": process.env.PGURL,
 //     rds:
 //         {
-//             pgurl: "",
 //             securitygroup : 'pg-lambda'
 //         },
 //     url: "ba8f9215-65e3-46d8-8fde-10457ead6719.zip"

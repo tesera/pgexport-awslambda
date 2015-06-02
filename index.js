@@ -5,7 +5,6 @@ var admZip = require('adm-zip');
 var Q = require('q');
 var _ = require('underscore');
 var PGExport = require('./lib/pg-export');
-
 var RDSIngress = require('./lib/rds-ingress');
 
 exports.handler = function (event, context) {
@@ -13,7 +12,8 @@ exports.handler = function (event, context) {
     var options = {
         bucket: 'pgexport-awslambda',
         rds: event.rds,
-        folder: event.folder
+        folder: event.folder,
+        pgurl: event.pgurl
     };
     var pgExport = new PGExport(options);
 

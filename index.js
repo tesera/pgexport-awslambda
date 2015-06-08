@@ -11,8 +11,9 @@ exports.handler = function (event, context) {
 
     var options = {
         bucket: 'pgexport-awslambda',
+        key: event.key,
         rds: event.rds,
-        folder: event.folder,
+        //folder: event.folder,
         pgurl: event.pgurl
     };
     var pgExport = new PGExport(options);
@@ -32,6 +33,7 @@ exports.handler = function (event, context) {
     actions[event.action](event)
         .then(function (result) {
             console.log(event.action + ' succeeded ')
+
             context.done(null, result);
         })
         .fail(context.done);

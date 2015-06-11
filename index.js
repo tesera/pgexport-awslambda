@@ -8,14 +8,15 @@ var PGExport = require('./lib/pg-export');
 var RDSIngress = require('./lib/rds-ingress');
 
 exports.handler = function (event, context) {
-
+    
     var options = {
         bucket: 'pgexport-awslambda',
         key: event.key,
         rds: event.rds,
-        //folder: event.folder,
+        filters: event.filters || {},
         pgurl: event.pgurl
     };
+
     var pgExport = new PGExport(options);
 
     var actions = {

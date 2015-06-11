@@ -7,13 +7,17 @@
 
 zip -r function.zip package.json node_modules/* lib/* index.js
 
-aws lambda upload-function \
-  --function-name pgexport \
-  --function-zip function.zip  \
-  --runtime nodejs  \
-  --role $LAMBDA_EXEC_ROLE_ARN \
-  --handler index.handler  \
-  --mode event  \
-  --timeout 60  \
-  --memory-size 256  \
-  --region us-east-1
+#aws lambda upload-function \
+#  --function-name pgexport \
+#  --function-zip function.zip  \
+#  --runtime nodejs  \
+#  --role $LAMBDA_EXEC_ROLE_ARN \
+#  --handler index.handler  \
+#  --mode event  \
+#  --timeout 60  \
+#  --memory-size 256  \
+#  --region us-east-1
+
+aws lambda update-function-code \
+    --function-name pgexport \
+    --zip-file fileb://function.zip

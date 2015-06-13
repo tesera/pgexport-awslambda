@@ -8,7 +8,7 @@ var PGExport = require('./lib/pg-export');
 var RDSIngress = require('./lib/rds-ingress');
 
 exports.handler = function (event, context) {
-    
+
     var options = {
         bucket: 'pgexport-awslambda',
         key: event.key,
@@ -24,17 +24,16 @@ exports.handler = function (event, context) {
             return pgExport.exportData(event.queries);
         },
         getExports: function (event) {
-            return pgExport.getExports();
+            return pgExport.getExports(event.prefix);
         },
         getExportSignedUrl: function (event) {
-            return pgExport.getExportSignedUrl(event.url);
+            return pgExport.getExportSignedUrl(event.key);
         }
     };
 
     actions[event.action](event)
         .then(function (result) {
-            console.log(event.action + ' succeeded ')
-
+            console.log(event.action + ' succeeded ');
             context.done(null, result);
         })
         .fail(context.done);

@@ -1,17 +1,15 @@
-
 #!/usr/bin/env bash
 
 # desc:   zips up lambda function resources and uploads to aws
-# usage:  LAMBDA_EXEC_ROLE_ARN=arn:aws:iam::{iam_id}:role/{role_name} ./scripts/deploy.sh
 # docs:   http://docs.aws.amazon.com/cli/latest/reference/lambda/upload-function.html
 
 zip -r function.zip package.json node_modules/* lib/* index.js
 
-#aws lambda upload-function \
+# aws lambda upload-function \
 #  --function-name pgexport \
 #  --function-zip function.zip  \
 #  --runtime nodejs  \
-#  --role $LAMBDA_EXEC_ROLE_ARN \
+#  --role arn:aws:iam::674223647607:role/pgexport_lambda_exec_role \
 #  --handler index.handler  \
 #  --mode event  \
 #  --timeout 60  \
@@ -21,3 +19,5 @@ zip -r function.zip package.json node_modules/* lib/* index.js
 aws lambda update-function-code \
     --function-name pgexport \
     --zip-file fileb://function.zip
+
+rm function.zip

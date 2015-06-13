@@ -1,0 +1,10 @@
+{
+    "node" : true,
+    "bitwise" : true,
+    "undef" : true,
+    "eqeqeq" : true,
+    "noarg" : true,
+    "mocha" : true,
+    "predef" : ["angular", "_", "Papa", "ngApp", "File", "zip", "$", "interact"],
+    "browser": true
+}

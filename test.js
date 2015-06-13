@@ -1,25 +1,26 @@
+'use strict';
 var lambda = require('./index.js');
 require('node-env-file')('.env');
 
-// var evt = {
-//     "action": "exportData",
-//     "key": "magda/reports/ad9da3a5-9dcc-401b-846d-9f060fc43ce9/full.zip",
-//     "pgurl": process.env.PGURL,
-//     "rds": {
-//       "DBSecurityGroupName": "pg-lambda"
-//     },
-//     "queries": [
-//       {
-//         "filename": "report_full.csv",
-//         "sql": "SELECT * FROM app.export_report_as_csv('app.report_full')"
-//       }
-//     ]
-// };
-
 var evt = {
- "action": "getExports",
- "key": "magda/reports",
+    "action": "exportData",
+    "key": "yves.richard@tesera.com/psp/506115e2-a17c-44a0-90d0-aefbcea22f68/pgyi-data-export.zip",
+    "pgurl": process.env.PGURL,
+    "rds": {
+      "DBSecurityGroupName": "pg-lambda"
+    },
+    "queries": [
+      {
+        "filename": "plot.csv",
+        "sql": "SELECT * FROM psp.plot"
+      }
+    ]
 };
+
+// var evt = {
+//  "action": "getExports",
+//  "key": "magda/reports",
+// };
 
 var context = {
     done: function(err, data) {

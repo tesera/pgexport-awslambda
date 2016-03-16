@@ -28,3 +28,5 @@ node_modules
 
 #aws configuration
 .env
+
+.DS_Store

@@ -2,6 +2,7 @@
 var lambda = require('./index.js');
 require('node-env-file')('.env');
 
+/*
 var evt = {
     "action": "exportData",
     "key": "yves.richard@tesera.com/psp/506115e2-a17c-44a0-90d0-aefbcea22f68/pgyi-data-export.zip",
@@ -16,11 +17,42 @@ var evt = {
       }
     ]
 };
+*/
 
-// var evt = {
-//     "action": "getExports",
-//     "prefix": "yves.richard@tesera.com",
-// };
+var evt = {
+    "pgurl": process.env.PGURL,
+    "bucket": "borisgeojson",
+    "key": "test/9d4e9ddf-28cb-45a1-8e17-full",
+    "rds": {
+      "DBSecurityGroupName": "pg-lambda"
+    },
+    "queries": [
+        {
+            "filename": "coquitlam_20150116_druid_data_y_ins_2016.csv",
+            "sql": "select * from datasets.coquitlam_20150116_druid_data_y_ins_2016 limit 10"
+        },
+        {
+            "filename": "coquitlam_20150116_druid_data_x_2015.csv",
+            "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015 limit 10"
+        },
+        {
+            "filename": "coquitlam_20150116_druid_data_x_2015_data_y_ins_2016.csv",
+            "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015_data_y_ins_2016 limit 10"
+        }
+    ],
+    "archive": false
+};
+
+
+ // ,
+      // {
+      //   "filename": "coquitlam_20150116_druid_data_x_2015.csv",
+      //   "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015"
+      // },
+      // {
+      //   "filename": "coquitlam_20150116_druid_data_x_2015_data_y_ins_2016.csv",
+      //   "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015_data_y_ins_2016"
+      // }    
 
 // var evt = {
 //     "action": "getExportSignedUrl",

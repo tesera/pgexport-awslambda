@@ -44,6 +44,14 @@ var importEvt = {
         {
             "key": "test-cqtlm-old/4a_filter/input/data-y-filter-options.csv",
             "tablename": "data_y_filter"
+        },
+        {
+            "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
+            "tablename": "claims"
+        },
+        {
+            "key": "test-cqtlm-old/4a_filter/input/SUMMARY_MUNICIPAL_SSH7_25_SPDIASTR1_4.csv",
+            "tablename": "summary"
         }
     ]
 }
@@ -55,4 +63,4 @@ var context = {
     }
 };
 
-lambda.handler(exportEvt, context);
+lambda.handler(importEvt, context);

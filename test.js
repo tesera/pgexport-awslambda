@@ -17,7 +17,7 @@ var evt = {
     ]
 };
 
-var evt = {
+var exportEvt = {
     "pgurl": "postgresql://ibcmrat:huSav8japr3b@tsi-postgres-1.cn0lfmewpatf.us-east-1.rds.amazonaws.com:5432/mrat_dev",
     "bucket": "borisgeojson",
     "key": "test/9d4e9ddf-28cb-45a1-8e17-full",
@@ -33,21 +33,20 @@ var evt = {
     archive: false
 };
 
-
- // ,
-      // {
-      //   "filename": "coquitlam_20150116_druid_data_x_2015.csv",
-      //   "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015"
-      // },
-      // {
-      //   "filename": "coquitlam_20150116_druid_data_x_2015_data_y_ins_2016.csv",
-      //   "sql": "select * from datasets.coquitlam_20150116_druid_data_x_2015_data_y_ins_2016"
-      // }    
-
-// var evt = {
-//     "action": "getExportSignedUrl",
-//     "key": "yves.richard@tesera.com/reports/66f41e6a-d2e6-4f74-94b9-88d7888ece2d/strata.zip"
-// };
+var importEvt = {
+    "pgurl": process.env.PGURL,
+    "bucket": "tesera.svc.learn",
+    "action": "importData",
+    "rds": {
+      "DBSecurityGroupName": "pg-lambda"
+    },
+    "queries": [
+        {
+            "key": "test-cqtlm-old/4a_filter/input/data-y-filter-options.csv",
+            "tablename": "data_y_filter"
+        }
+    ]
+}
 
 var context = {
     done: function(err, data) {
@@ -56,4 +55,4 @@ var context = {
     }
 };
 
-lambda.handler(evt, context);
+lambda.handler(exportEvt, context);

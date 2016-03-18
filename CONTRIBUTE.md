@@ -7,7 +7,7 @@ on Amazon AWS AMI using nvm and [AWS Lambda version of node](http://docs.aws.ama
 
 - Download PostgreSQL source: ```wget https://ftp.postgresql.org/pub/source/v9.4.1/postgresql-9.4.1.tar.bz2```
 - Extract it to downloaded location: ```tar xjf ~/Downloads/postgresql-9.4.1.tar.bz2```
-- Run ```./configure --with-openssl --without-readline```. This step will fail with missing libs. Install necessary -devel lib dependencies until 
+- Run ```./configure --with-openssl --without-readline --prefix=~/libpq```. This step will fail with missing libs. Install necessary -devel lib dependencies until 
 config succeeds.
 - Build libpq: ```cd src/interfaces/libpq && make && make install```
 - Build pg_config: ```cd ./src/bin/pg_config && make && make install```

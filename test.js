@@ -52,6 +52,10 @@ var importEvt = {
         {
             "key": "test-cqtlm-old/4a_filter/input/SUMMARY_MUNICIPAL_SSH7_25_SPDIASTR1_4.csv",
             "tablename": "summary"
+        },
+        {
+            "key": "test-cqtlm-old/3_transform/input/develop.x_dataset_4326_geoJSON.csv",
+            "tablename": "data_x"
         }
     ]
 }

@@ -47,7 +47,10 @@ var importEvt = {
         },
         {
             "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
-            "tablename": "claims"
+            "tablename": "claims",
+            "overrides": {
+                "YEAR": "smallint"
+            }
         },
         {
             "key": "test-cqtlm-old/4a_filter/input/SUMMARY_MUNICIPAL_SSH7_25_SPDIASTR1_4.csv",

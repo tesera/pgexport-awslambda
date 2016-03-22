@@ -71,4 +71,4 @@ var context = {
 };
 
 lambda.handler(importEvt, context);
-// lambda.handler(exportEvt, context);
+lambda.handler(exportEvt, context);

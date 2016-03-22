@@ -48,7 +48,7 @@ var importEvt = {
         {
             "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
             "tablename": "claims",
-            "overrides": {
+            "mappings": {
                 "YEAR": "smallint"
             }
         },
@@ -71,3 +71,4 @@ var context = {
 };
 
 lambda.handler(importEvt, context);
+// lambda.handler(exportEvt, context);

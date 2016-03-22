@@ -30,7 +30,7 @@ Uses AWS Lambda's basic execution mode to invoke an export.
 ````
 
 ####Import
-Uses AWS Lambda's basic execution mode to invoke an import. You can override the default column type of VARCHAR(255) by providing an overrides object.
+Uses AWS Lambda's basic execution mode to invoke an import. You can override the default column type of VARCHAR(255) by providing an mappings object.
 
 ````json
 {
@@ -48,7 +48,7 @@ Uses AWS Lambda's basic execution mode to invoke an import. You can override the
         {
             "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
             "tablename": "claims",
-            "overrides": {
+            "mappings": {
                 "YEAR": "smallint"
             }
         },

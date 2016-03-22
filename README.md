@@ -49,7 +49,7 @@ Uses AWS Lambda's basic execution mode to invoke an import. You can override the
             "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
             "tablename": "claims",
             "mappings": {
-                "YEAR": "smallint"
+                "YEAR": { "type": "smallint" }
             }
         },
         {

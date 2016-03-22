@@ -49,7 +49,7 @@ var importEvt = {
             "key": "test-cqtlm-old/4a_filter/input/CLAIMS.csv",
             "tablename": "claims",
             "mappings": {
-                "YEAR": "smallint"
+                "YEAR": { "type": "smallint" }
             }
         },
         {

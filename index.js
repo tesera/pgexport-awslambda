@@ -1,7 +1,7 @@
 'use strict';
 var aws = require('aws-sdk');
 var PGExport = require('./lib/pg-export');
-var PGImport = require('./lib/pg-import');
+//var PGImport = require('./lib/pg-import');
 
 exports.handler = function (event, context) {
     process.env.LD_LIBRARY_PATH = process.env.LAMBDA_TASK_ROOT + '/lib/libpq/lib';
@@ -18,7 +18,7 @@ exports.handler = function (event, context) {
     };
 
     var pgExport = new PGExport(options);
-    var pgImport = new PGImport(options);
+    //var pgImport = new PGImport(options);
 
     var actions = {
         exportData: function () {
@@ -29,10 +29,10 @@ exports.handler = function (event, context) {
         },
         getExportSignedUrl: function (event) {
             return pgExport.getExportSignedUrl(event.key);
-        },
-        importData: function() {
-            return pgImport.importData(event.queries);
         }
+        // importData: function() {
+        //     return pgImport.importData(event.queries);
+        // }
     };
 
     actions[options.action](event)

@@ -19,7 +19,7 @@ var evt = {
 
 var exportEvt = {
     "pgurl": "postgresql://ibcmrat:huSav8japr3b@tsi-postgres-1.cn0lfmewpatf.us-east-1.rds.amazonaws.com:5432/mrat_dev",
-    "bucket": "boris-tesera",
+    "bucket": "borisgeojson",
     "key": "test/9d4e9ddf-28cb-45a1-8e17-full",
     "rds": {
       "DBSecurityGroupName": "pg-lambda"
@@ -30,7 +30,7 @@ var exportEvt = {
             "sql": "select * from datasets.coquitlam_20150116_druid_data_y_ins_2016 limit 10"
         }
     ],
-    "archive": false
+    archive: false
 };
 
 var importEvt = {
@@ -70,5 +70,5 @@ var context = {
     }
 };
 
-//lambda.handler(importEvt, context);
+lambda.handler(importEvt, context);
 lambda.handler(exportEvt, context);

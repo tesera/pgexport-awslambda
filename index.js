@@ -1,15 +1,14 @@
 'use strict';
 var aws = require('aws-sdk');
 var PGExport = require('./lib/pg-export');
-var PGImport = require('./lib/pg-import');
 
 exports.handler = function (event, context) {
-    process.env.LD_LIBRARY_PATH = process.env.LAMBDA_TASK_ROOT + '/lib/libpq/lib';
+    process.env.LD_LIBRARY_PATH = process.env.LAMBDA_TASK_ROOT + '/lib/libpq/lib';  
     process.env.PATH = process.env.PATH + ':' + process.env.LAMBDA_TASK_ROOT + '/lib/libpq/lib'
 
     var options = {
         bucket: event.bucket || 'pgexport-awslambda',
-        key: event.key || null,
+        key: event.key,
         rds: event.rds,
         filters: event.filters || {},
         pgurl: event.pgurl,
@@ -18,7 +17,6 @@ exports.handler = function (event, context) {
     };
 
     var pgExport = new PGExport(options);
-    var pgImport = new PGImport(options);
 
     var actions = {
         exportData: function () {
@@ -29,9 +27,6 @@ exports.handler = function (event, context) {
         },
         getExportSignedUrl: function (event) {
             return pgExport.getExportSignedUrl(event.key);
-        },
-        importData: function() {
-            return pgImport.importData(event.queries);
         }
     };
 

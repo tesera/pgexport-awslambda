@@ -1,0 +1,64 @@
+{
+  "name": "libpq",
+  "version": "1.8.1",
+  "description": "Low-level native bindings to PostgreSQL libpq",
+  "main": "index.js",
+  "keywords": [
+    "postgres",
+    "libpq"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brianc/node-libpq.git"
+  },
+  "scripts": {
+    "test": "node-gyp rebuild && node_modules/.bin/mocha",
+    "install": "node-gyp rebuild"
+  },
+  "author": {
+    "name": "Brian M. Carlson"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.0.4",
+    "bindings": "1.2.1"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "lodash": "^2.4.1",
+    "mocha": "^1.21.4",
+    "okay": "^0.3.0"
+  },
+  "gypfile": true,
+  "gitHead": "97b93099cd682b0ab72c976b7fc186a7b880dc27",
+  "bugs": {
+    "url": "https://github.com/brianc/node-libpq/issues"
+  },
+  "homepage": "https://github.com/brianc/node-libpq#readme",
+  "_id": "libpq@1.8.1",
+  "_shasum": "ccf1ce65b4284beb5bc2d1f4284977e773585381",
+  "_from": "libpq@^1.7.0",
+  "_npmVersion": "3.3.12",
+  "_nodeVersion": "5.5.0",
+  "_npmUser": {
+    "name": "brianc",
+    "email": "brian.m.carlson@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "brianc",
+      "email": "brian.m.carlson@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "ccf1ce65b4284beb5bc2d1f4284977e773585381",
+    "tarball": "http://registry.npmjs.org/libpq/-/libpq-1.8.1.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-5-east.internal.npmjs.com",
+    "tmp": "tmp/libpq-1.8.1.tgz_1456419412184_0.7359417944680899"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/libpq/-/libpq-1.8.1.tgz",
+  "readme": "ERROR: No README data found!"
+}

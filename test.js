@@ -27,11 +27,9 @@ var evt = {
 //     "key": "yves.richard@tesera.com/reports/66f41e6a-d2e6-4f74-94b9-88d7888ece2d/strata.zip"
 // };
 
-var context = {
-    done: function(err, data) {
-        if(err) console.log('lambda exited with errors: ', err)
-        else console.log('lambda exited without errors ', data)
-    }
+var callback = function(err, data) {
+    if(err) console.log('lambda exited with errors: ', err)
+    else console.log('lambda exited without errors ', data)
 };
 
-lambda.handler(evt, context);
+lambda.handler(evt, {}, callback);

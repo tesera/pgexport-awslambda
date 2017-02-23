@@ -1,13 +1,7 @@
 'use strict';
-var aws = require('aws-sdk');
-var pgp = require('pg-promise')();
-var admZip = require('adm-zip');
-var Q = require('q');
-var _ = require('underscore');
 var PGExport = require('./lib/pg-export');
-var RDSIngress = require('./lib/rds-ingress');
 
-exports.handler = function (event, context) {
+exports.handler = function (event, context, callback) {
 
     var options = {
         bucket: 'pgexport-awslambda',
@@ -34,7 +28,7 @@ exports.handler = function (event, context) {
     actions[event.action](event)
         .then(function (result) {
             console.log(event.action + ' succeeded ');
-            context.done(null, result);
+            callback(null, result);
         })
-        .fail(context.done);
+        .fail(callback);
 };

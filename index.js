@@ -4,9 +4,8 @@ var PGExport = require('./lib/pg-export');
 exports.handler = function (event, context, callback) {
 
     var options = {
-        bucket: 'pgexport-awslambda',
+        bucket: process.env.bucket,
         key: event.key,
-        rds: event.rds,
         filters: event.filters || {},
         pgurl: event.pgurl
     };

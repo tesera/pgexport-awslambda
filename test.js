@@ -6,9 +6,6 @@ var evt = {
     "action": "exportData",
     "key": "yves.richard@tesera.com/psp/506115e2-a17c-44a0-90d0-aefbcea22f68/pgyi-data-export.zip",
     "pgurl": process.env.PGURL,
-    "rds": {
-      "DBSecurityGroupName": "pg-lambda"
-    },
     "queries": [
       {
         "filename": "plot.csv",

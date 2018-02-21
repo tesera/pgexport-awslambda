@@ -4,7 +4,7 @@
   "description": "Generic postgreSQL export lambda microservice.",
   "main": "index.js",
   "dependencies": {
-    "archiver": "^0.14.4",
+    "archiver": "^1.0.0",
     "aws-sdk": "^2.18.0",
     "csv-stringify": "0.0.8",
     "pg-promise": "^1.0.7",
